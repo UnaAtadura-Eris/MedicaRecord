@@ -1,23 +1,32 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@id/spinner"
+        android:layout_margin="10dp"/>
 
     <RadioGroup
         android:id="@+id/optionsRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionTextView">
-
-        <!-- Add RadioButtons programmatically in code -->
-
+        android:layout_below="@id/questionTextView"
+        android:layout_margin="10dp">
     </RadioGroup>
 
     <Button
@@ -25,18 +34,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:layout_below="@id/optionsRadioGroup" />
+        android:layout_below="@id/optionsRadioGroup"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/detailedExplanationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nextButton"/>
+        android:layout_below="@+id/nextButton"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/answerToRecordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/detailedExplanationTextView"/>
+        android:layout_below="@+id/detailedExplanationTextView"
+        android:layout_margin="10dp"/>
 </RelativeLayout>
-
+</ScrollView>
