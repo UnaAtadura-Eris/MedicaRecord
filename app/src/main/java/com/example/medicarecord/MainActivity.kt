@@ -1,6 +1,8 @@
 package com.example.medicarecord
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -23,8 +25,36 @@ class MainActivity : AppCompatActivity() {
     private lateinit var detailedExplanationTextView: TextView
     private lateinit var answerToRecordTextView: TextView
     private lateinit var spinner: Spinner
+    private var isJiBinglieBiao = false //切换疾病与症状列表
     private var currentQuestionIndex = 0
     val resultList = mutableListOf<String>()
+    var options = zhengZhuanglieBiao
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        updateMenuItemTitle(menu.findItem(R.id.menu_item1))
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_item1 -> {
+                isJiBinglieBiao = !isJiBinglieBiao
+                updateOptionsAdapter()
+                updateMenuItemTitle(item)
+                return true
+            }
+            R.id.menu_item2 -> {
+                // 处理菜单项2的点击事件
+                return true
+            }
+            R.id.menu_item3 -> {
+                // 处理菜单项3的点击事件
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +69,6 @@ class MainActivity : AppCompatActivity() {
         detailedExplanationTextView = findViewById(R.id.detailedExplanationTextView)
         answerToRecordTextView = findViewById(R.id.answerToRecordTextView)
 
-        val options = jiBinglieBiao
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
@@ -57,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                     "咳嗽咳痰" -> keShou()
                     // ...
                     else -> {
-                        // 处理未知选项的情况
+                        Toast.makeText(this@MainActivity, "填坑中\ud83d\ude02", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -69,6 +98,19 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    private fun updateOptionsAdapter() {
+        val options = if (isJiBinglieBiao) jiBinglieBiao else zhengZhuanglieBiao
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+    }
+
+    private fun updateMenuItemTitle(menuItem: MenuItem) {
+        val title = if (isJiBinglieBiao) "以症状进行问诊" else "以病名进行问诊"
+        menuItem.title = title
+    }
+
 
     private fun showQuestion(question: Question) {
         questionTextView.text = question.text
@@ -128,7 +170,7 @@ class MainActivity : AppCompatActivity() {
                 if (selectedIndex == -1) {
                     // 提示用户选择一个选项
                     currentQuestionIndex -= 1
-                    Toast.makeText(this, "请选择一个选项", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "请选择一个选项\ud83d\ude09", Toast.LENGTH_SHORT).show()
 
                 } else{
                 // 对选中的单选题选项进行处理

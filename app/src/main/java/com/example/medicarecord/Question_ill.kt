@@ -1,6 +1,6 @@
 package com.example.medicarecord
-val jiBinglieBiao=listOf("发热", "咳嗽咳痰", "咯血", "呼吸困难", "头痛", "胸痛", "腹痛", "关节痛", "腰背痛", "颈肩痛", "心悸", "水肿", "恶心呕吐", "呕血便血", "腹泻", "消瘦", "黄疸", "少尿无尿", "多尿", "尿频尿急尿痛", "血尿", "癫痫发作与惊厥", "眩晕", "意识障碍", "皮肤黏膜出血")
-
+val zhengZhuanglieBiao=listOf("发热", "咳嗽咳痰", "咯血", "呼吸困难", "头痛", "胸痛", "腹痛", "关节痛", "腰背痛", "颈肩痛", "心悸", "水肿", "恶心呕吐", "呕血便血", "腹泻", "消瘦", "黄疸", "少尿无尿", "多尿", "尿频尿急尿痛", "血尿", "癫痫发作与惊厥", "眩晕", "意识障碍", "皮肤黏膜出血")
+val jiBinglieBiao = listOf("脑出血", "脑梗死", "颈椎病", "腰椎间盘突出")
 
 
 var questions_faRe = listOf(
@@ -85,7 +85,7 @@ val nMRCxiangJie = "Ⅰ级是在剧烈活动之后出现；Ⅱ级是在快走或
 
 
 
-var questions_tuoTong = listOf(
+var questions_touTong = listOf(
     Question("起病诱因、病因", listOf("xx前无明显诱因出现头痛", "xx前剧烈运动后出现头痛", "xx前过度疲劳后出现头痛","xx前用力排便后出现头痛","xx前因情绪激动出现头痛","xx前脑外伤后出现头痛"),QuestionType.SINGLE_CHOICE,emptyList()),
     Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
     Question("疼痛部位", listOf("前额头痛", "偏头痛（左右？）","游走性疼痛","不知痛处","枕部疼痛", "颅顶疼痛"),QuestionType.SINGLE_CHOICE,emptyList()),
@@ -150,6 +150,152 @@ val fuTongxingZhixiangJie ="1、腹部胀痛很可能是消化方面的问题，
         "4、腹部刺痛很有可能是由胃肠道痉挛引起的。\n" +
         "5、腹部灼烧性疼痛多与化学刺激有关，比如胃酸分泌过多引起的胃部灼烧性疼痛，包括胃溃疡、胃食道反流等疾病会引起腹部灼烧性疼痛。\n" +
         "6、有的腹痛是由疼痛辐射到固定的区域引起的，如急性胆囊炎可以辐射到右肩和背部，阑尾炎引起的疼痛可以从脐转移到右下象限。"
+
+
+
+var questions_guanJietong = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现关节痛", "xx前过度劳累后出现关节痛", "xx前因饮酒后出现关节痛","xx前天气变冷后出现关节痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("疼痛部位", listOf("疼痛呈游走性", "疼痛位置固定","不知痛处"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性疼痛，持续时间为？", "持续性疼痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("加重或缓解的因素", listOf("天气变冷时加重", "活动后加重", "活动后缓解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("发热盗汗、乏力纳差消瘦","红肿热痛", "疼痛对称", "晨僵，持续了30分钟以上", "关节畸形", "饮酒后疼痛", "皮肤红斑、光过敏","皮肤紫癜、腹痛","肌肉疼痛、肌无力、肌萎缩","淋巴结大、肝脾大","其他不适"),QuestionType.MULTI_CHOICE,List(11) { false }),
+    Question("与疾病相关的其他病史", listOf("关节外伤史","结核病史","风湿病史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(4) { false })
+)
+
+val guanJietongbszzxiangJie ="1.发热盗汗、乏力纳差消瘦:考虑结核\n" +
+        "疼痛对称、晨僵，持续了30分钟以上、关节畸形:考虑类风湿关节炎\n" +
+        "饮酒后疼痛:考虑痛风\n" +
+        "皮肤红斑、光过敏,皮肤紫癜、腹痛,肌肉疼痛、淋巴结大、肝脾大:考虑过敏性紫癜\n" +
+        "过敏性紫癜为什么腹痛：过敏性紫癜以后，容易出现肠壁水肿、渗出以及出血的现象，肠壁出血形成的刺激可致肠蠕动亢进，引起肠痉挛，出现腹痛。"
+
+
+var questions_yaoBeitong = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现腰背痛", "xx前不慎扭伤后出现腰背痛", "xx前负重后出现腰背痛","xx前受凉后出现腰背痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("疼痛部位", listOf("疼痛呈游走性", "疼痛位置固定","不知痛处"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性疼痛，持续时间为？", "持续性疼痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("加重或缓解的因素", listOf("活动后加重","休息后缓解","活动后缓解" ),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("发热盗汗、乏力纳差消瘦","脊柱畸形", "活动受限", "尿频、尿急、排尿不尽","肾区叩击痛","下肢疼痛","其他不适"),QuestionType.MULTI_CHOICE,List(7) { false }),
+    Question("与疾病相关的其他病史", listOf("关节外伤史","结核病史","风湿病史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(4) { false })
+)
+
+
+var questions_jingJiantong = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现肩颈痛", "xx前外伤后出现肩颈痛", "xx前早晨起来后出现肩颈痛","xx前劳累后出现肩颈痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("疼痛部位", listOf("疼痛呈游走性", "疼痛位置固定","不知痛处"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性疼痛，持续时间为？", "持续性疼痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("活动受限","上肢放射痛", "头晕","上肢麻木、疼痛、无力、走路踩棉花样感","其他不适"),QuestionType.MULTI_CHOICE,List(5) { false }),
+    Question("与疾病相关的其他病史", listOf("外伤史","结核病史","风湿病史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(4) { false })
+)
+
+
+var questions_xinJi = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现心悸", "xx前感冒后出现心悸", "xx前剧烈运动后出现心悸","xx前劳累后出现心悸"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性发作，发作频率？，持续时间为？", "持续性疼痛"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("心前区疼痛","发热", "晕厥抽搐","头晕乏力","呼吸困难","消瘦、出汗、手抖","其他不适"),QuestionType.MULTI_CHOICE,List(7) { false }),
+    Question("与疾病相关的其他病史", listOf("贫血","心脏病", "高血压", "慢性呼吸系统疾病","甲状腺功能亢进","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(6) { false })
+)
+
+
+
+var questions_shuiZhong = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现水肿", "有无前驱感染", "前驱感染详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("部位", listOf("颜面部水肿，并向下蔓延", "双下肢水肿，并向上蔓延"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("特点", listOf("全身性","局部性", "对称性","凹陷性","特点详解"),QuestionType.MULTI_CHOICE,List(5) { false }),
+    Question("伴随症状", listOf("肝区胀痛","泡沫样尿", "呼吸困难及发绀","其他不适","伴随症状详解"),QuestionType.MULTI_CHOICE,List(5) { false }),
+    Question("与疾病相关的其他病史", listOf("肝病","心脏病", "肾病", "甲状腺疾病病史","手术或下肢静脉血栓史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(6) { false })
+)
+
+val qianQuganRan = "前驱感染就是典型症状出现之前的一般的没有特异性的症状。比如说咳嗽，低烧，疲劳，头痛就是很常见的前驱症状。\n" +
+        "上呼吸道感染史1-3周后+血尿+C3补体下降：急性肾小球肾炎\n" +
+        "上呼吸道感染史1周内+血尿：IgA肾病"
+
+val shuiZhongteDian = "凹陷性水肿:常见于肾脏病肾病综合征、肝硬化或者心衰患者\n" +
+        "非凹陷性水肿：常见于甲状腺疾病、甲状腺功能减退，或者甲状腺功能亢进，还有寄生虫性疾病，会出现淋巴管阻塞，也可以出现非凹陷性水肿。"
+
+
+val shuiZhongbszzXiangjie ="通常尿液泡沫增多，提示尿液有蛋白质的出现，如果同时患者又存在四肢浮肿，一般最大的可能性是与肾小球疾病有关系。\n" +
+        "肾炎综合症：血尿、蛋白尿、水肿、高血压，以血尿为主。\n" +
+        "肾病综合征：大量蛋白尿（>3.5g/d）、低蛋白血症、水肿、高血脂，以蛋白尿为主。"
+
+
+var questions_eXinouTu = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现恶心呕吐","xx前因不洁饮食引起恶心呕吐", "体位变化引起恶心呕吐", "咽部刺激引起恶心呕吐"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性呕吐，发作频率？", "持续性呕吐"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("呕吐与进食的关系", listOf("进食后即刻呕吐","餐后数小时后呕吐", "餐后1小时以上出现呕吐","呕吐与进食详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("呕吐特点", listOf("干呕","喷射性呕吐","呕吐物为胃内容物", "呕吐物呈鲜红色","呕吐物呈黄色（胆汁反流到胃里）"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("腹痛","腹泻", "头晕","口干、多饮、多尿、消瘦","其他不适"),QuestionType.MULTI_CHOICE,List(5) { false }),
+    Question("与疾病相关的其他病史", listOf("胆胰疾病","心脏病", "高血压", "胃炎","消化性溃疡","糖尿病","腹部手术史","食物药物过敏史","已婚有龄妇女早晨呕吐者应注意早孕"),QuestionType.MULTI_CHOICE,List(9) { false })
+)
+
+val ouTujinShixiangJie ="进食过程中或进食后即刻呕吐，可能为患者出现了幽门管溃疡或精神性呕吐。\n" +
+        "如果患者在餐后1小时以上出现呕吐称为延迟性呕吐，通常提示患者的胃张力下降或胃排空延迟。\n" +
+        "餐后呕吐常见于幽门梗阻，呕吐物可有隔夜宿食。\n" +
+        "餐后呕吐，特别是集体发病的患者多数是由于食物中毒所导致的。"
+
+
+var questions_ouXuebianXue = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现呕血便血","xx前因进食粗糙或带刺食物引起呕血便血", "xx前服用非甾体消炎药后出现恶呕血便血", "xx前外伤后引起呕血便血"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性便血，发作频率？持续时间？", "持续性呕吐"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("呕血便血的量、颜色", listOf("量大色鲜红","量大色黑", "量少色鲜红","量少色黑"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("与大便的关系", listOf("便前出血","便后出血","与大便关系详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("上腹痛","腹胀、肝掌、蜘蛛痣", "黄疸、畏寒、发热", "皮肤出血点","呕血伴肠鸣音亢进、黑便（提示活动性出血）","其他不适"),QuestionType.MULTI_CHOICE,List(6) { false }),
+    Question("与疾病相关的其他病史", listOf("消化性溃疡","肝炎","血液系统疾病","大量饮酒史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(5) { false })
+)
+val daBianxiangJie = "便后出血:多见于肛门疾病，如痔疮、肛裂。\n" +
+        "便前出血:考虑溃疡性结直肠炎等疾病。"
+
+
+var questions_fuXie = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现腹泻","xx前因不洁饮食引起腹泻", "xx前服用药物后出现腹泻"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性腹泻，发作频率？持续时间？", "持续性呕吐","复发性腹泻"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("大便的性状", listOf("大便呈稀糊状","呈水样便", "呈黏液脓血便","大便中往往混有未消化食物","大便性状详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("腹泻与腹痛的关系", listOf("便后腹痛可缓解","便后腹痛不可缓解","无腹痛","腹泻腹痛详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("发热","里急后重", "消瘦", "皮疹或皮下出血","腹部包块","关节痛、关节肿胀","其他不适"),QuestionType.MULTI_CHOICE,List(7) { false }),
+    Question("与疾病相关的其他病史", listOf("慢性细菌性痢疾","阑尾炎","炎症性肠炎","肠寄生虫病","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(5) { false })
+)
+
+val daBianxingZhuangxiangJie ="1、动力性腹泻，往往表现为腹痛、腹鸣、腹泻，动力性腹泻的大便往往是稀糊状。\n" +
+        "2、分泌性腹泻，是指由于细菌毒素刺激肠道，产生大量肠液分泌，往往表现为水样便。\n" +
+        "3、渗出性腹泻也叫炎性腹泻，是指各种原因导致肠道的炎症以及黏膜损伤，往往表现为黏液脓血便。\n" +
+        "4、渗透性腹泻，往往继发于消化吸收不良，大便中往往混有未消化食物。"
+
+
+
+var questions_bianMi = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现便秘","xx前因精神压力大而出现便秘"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性便秘", "持续性便秘","复发性便秘"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("大便的特点", listOf("次数","量", "性状","颜色","加重与缓解的因素"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("腹泻与腹痛的关系", listOf("便后腹痛可缓解","便后腹痛不可缓解","无腹痛","腹泻腹痛详解"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("腹部包块","生活环境的改变", "精神紧张", "依赖泻药排便","其他不适"),QuestionType.MULTI_CHOICE,List(5) { false }),
+    Question("与疾病相关的其他病史", listOf("甲状腺功能减退症","糖尿病病史（糖尿病的植物神经病变就会导致胃肠道功能的紊乱）","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(3) { false })
+)
+
+val fuXiefuTongxiangJie = "急性腹泻常有腹痛，尤以感染性腹泻明显。\n" +
+        "小肠疾病的腹泻疼痛常在脐周，便后腹痛缓解不显；\n" +
+        "结肠疾病则疼痛多在下腹，且便后疼痛常可缓解或减轻。\n" +
+        "分泌性腹泻往往无明显腹痛。"
+
+
+var questions_hunangDan = listOf(
+    Question("起病诱因、病因", listOf("xx前无明显诱因出现黄疸","xx前因服用（或停用抗病毒药物后）特殊药物后而出现黄疸","xx前因不洁饮食而出现黄疸","xx前因饮酒后出现黄疸"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("发作缓急程度", listOf("急性发作，病程短", "慢性发作，病程长"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("持续时间", listOf("间歇性便秘", "持续性便秘","复发性便秘"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("出黄疸的时间与波动情况", listOf("胆总管结石引起的黄疸多呈间歇性和波动性"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("大小便颜色", listOf("陶土色大便","大小便黄"),QuestionType.SINGLE_CHOICE,emptyList()),
+    Question("伴随症状", listOf("畏寒、发热", "腹痛、腹胀","其他不适"),QuestionType.MULTI_CHOICE,List(3) { false }),
+    Question("与疾病相关的其他病史", listOf("肝炎","肝胆系统疾病及消化系统疾病","药物服用史","大量饮酒史","食物药物过敏史"),QuestionType.MULTI_CHOICE,List(5) { false })
+)
+
+
 
 
 
